@@ -1,0 +1,20 @@
+[package]
+name = "actix-tools"
+version = "0.1.0"
+authors = ["Loggi Tecnologia LTDA <dev@loggi.com>", "Gabriela Surita <gabsurita@gmail.com>"]
+
+[dependencies]
+actix = "0.7"
+config = "0.8"
+env_logger = "0.5"
+influx_db_client = "0.3"
+log = "0.4"
+num_cpus = "1.8"
+rumqtt = "0.10"
+redis = "0.8"
+r2d2 = "0.8"
+r2d2_redis = "0.7"
+sentry = "0.6"
+serde = "1.0"
+serde_derive = "1.0"
+serde_json = "1.0"
