@@ -45,6 +45,13 @@ impl RedisWorker {
     pub fn get_connection(&self) -> RedisConnectionWrapper {
         self.pool.get().unwrap()
     }
+
+    pub fn execute<F, R>(&self, exec: F) -> R
+    where
+        F: Fn(&Connection) -> R, {
+        let connection = self.get_connection();
+        exec(&connection)
+    }
 }
 
 impl Actor for RedisWorker {

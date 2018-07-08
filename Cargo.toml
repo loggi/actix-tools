@@ -5,16 +5,30 @@ authors = ["Loggi Tecnologia LTDA <dev@loggi.com>", "Gabriela Surita <gabsurita@
 
 [dependencies]
 actix = "0.7"
-config = "0.8"
-env_logger = "0.5"
-influx_db_client = "0.3"
+env_logger = { version = "0.5", optional = true }
+influx_db_client = { version = "0.3", optional = true }
 log = "0.4"
-num_cpus = "1.8"
-rumqtt = "0.10"
-redis = "0.8"
-r2d2 = "0.8"
-r2d2_redis = "0.7"
-sentry = "0.6"
+num_cpus = { version = "1.8", optional = true }
+rumqtt = { version = "0.10", optional = true }
+redis = { version = "0.8", optional = true }
+r2d2 = { version = "0.8", optional = true }
+r2d2_redis = { version = "0.7", optional = true }
+sentry = { version = "0.6", optional = true }
 serde = "1.0"
 serde_derive = "1.0"
 serde_json = "1.0"
+
+
+[features]
+default = [
+    "influx_actors",
+    "mqtt_actors",
+    "redis_actors",
+    "json_logs",
+    "sentry"
+]
+
+json_logs = ["env_logger"]
+influx_actors = ["influx_db_client"]
+mqtt_actors = ["rumqtt"]
+redis_actors = ["r2d2", "r2d2_redis", "redis", "num_cpus"]
