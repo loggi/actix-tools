@@ -1,4 +1,7 @@
+#[cfg(feature = "actix")]
 extern crate actix;
+#[cfg(feature = "config")]
+extern crate config;
 #[cfg(feature = "diesel")]
 extern crate diesel as diesel_core;
 #[cfg(feature = "env_logger")]
@@ -19,10 +22,14 @@ extern crate rumqtt;
 #[cfg(feature = "sentry")]
 #[macro_use]
 extern crate sentry as sentry_client;
+extern crate serde;
 #[macro_use]
 extern crate serde_derive;
 #[macro_use]
 extern crate serde_json;
+
+#[cfg(feature = "config")]
+pub mod settings;
 
 #[cfg(feature = "diesel_actors")]
 pub mod diesel;
