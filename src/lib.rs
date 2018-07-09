@@ -1,9 +1,10 @@
 extern crate actix;
+#[cfg(feature = "diesel")]
+extern crate diesel as diesel_core;
 #[cfg(feature = "env_logger")]
 extern crate env_logger;
 #[cfg(feature = "influx_db_client")]
 extern crate influx_db_client;
-#[cfg(feature = "num_cpus")]
 extern crate num_cpus;
 #[macro_use]
 extern crate log;
@@ -23,6 +24,9 @@ extern crate serde_derive;
 #[macro_use]
 extern crate serde_json;
 
+#[cfg(feature = "diesel_actors")]
+pub mod diesel;
+
 #[cfg(feature = "influx_actors")]
 pub mod influx;
 
@@ -37,3 +41,5 @@ pub mod redis;
 
 #[cfg(feature = "sentry")]
 pub mod sentry;
+
+pub mod utils;

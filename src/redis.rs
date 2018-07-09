@@ -1,7 +1,7 @@
 use actix::prelude::*;
-use num_cpus;
 use r2d2::{Pool, PooledConnection};
 use r2d2_redis::RedisConnectionManager;
+use utils::n_workers;
 
 pub use redis_client::*;
 
@@ -15,12 +15,12 @@ pub struct RedisSettings {
 }
 
 impl RedisSettings {
-    pub fn connection_info(self) -> ConnectionInfo {
-        let addr = ConnectionAddr::Tcp(self.host, self.port.unwrap_or(6379));
+    pub fn connection_info(&self) -> ConnectionInfo {
+        let addr = ConnectionAddr::Tcp(self.host.clone(), self.port.unwrap_or(6379));
 
         ConnectionInfo {
             addr:   Box::new(addr),
-            passwd: self.password,
+            passwd: self.password.clone(),
             db:     self.db.unwrap_or(0) as i64,
         }
     }
@@ -64,18 +64,6 @@ impl Actor for RedisWorker {
     fn stopped(&mut self, _ctx: &mut Self::Context) {
         info!("Stopping RedisWorker");
     }
-}
-
-/// Computes the number of Sync workers based on the block factor.
-/// More io time (block time) implicates in a larger number of workers.
-pub fn n_workers(block_factor: f32) -> usize {
-    if block_factor >= 1.0 {
-        panic!("Block factor should be lower than 1.0");
-    }
-
-    let cpus = num_cpus::get() as f32;
-    let multiplier = 1. / (1.0 - block_factor);
-    (cpus * multiplier).ceil() as usize
 }
 
 /// Creates a new Redis connection pool.
