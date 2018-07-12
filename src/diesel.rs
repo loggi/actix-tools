@@ -1,6 +1,8 @@
 use actix::prelude::*;
 use diesel::r2d2::ConnectionManager as DieselConnectionManager;
 use r2d2::{Pool, PooledConnection};
+use url::Url;
+
 use utils::n_workers;
 
 pub use diesel_core::*;
@@ -32,7 +34,9 @@ impl DieselSettings {
             .map(|db| format!("/{}", db))
             .unwrap_or_default();
 
-        format!("postgres://{}{}:{}{}", auth, self.host, port, db)
+        Url::parse(&format!("postgres://{}{}:{}{}", auth, self.host, port, db))
+            .unwrap()
+            .to_string()
     }
 }
 

@@ -27,6 +27,7 @@ extern crate serde;
 extern crate serde_derive;
 #[macro_use]
 extern crate serde_json;
+extern crate url;
 
 #[cfg(feature = "config")]
 pub mod settings;
