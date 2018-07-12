@@ -88,8 +88,10 @@ pub fn create_pool(settings: DieselSettings) -> DieselPool {
 }
 
 pub fn create_workers(settings: DieselSettings) -> Addr<DieselWorker> {
-    let redis_pool = create_pool(settings.clone());
+    let diesel_pool = create_pool(settings.clone());
     let workers = n_workers(settings.block_factor);
 
-    SyncArbiter::start(workers, move || DieselWorker::from_pool(redis_pool.clone()))
+    SyncArbiter::start(workers, move || {
+        DieselWorker::from_pool(diesel_pool.clone())
+    })
 }
