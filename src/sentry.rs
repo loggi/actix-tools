@@ -1,4 +1,4 @@
-use sentry_client;
+pub use sentry_client;
 
 #[derive(Clone, Deserialize)]
 pub struct SentrySettings {

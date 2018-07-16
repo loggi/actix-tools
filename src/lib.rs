@@ -21,7 +21,7 @@ extern crate redis as redis_client;
 extern crate rumqtt;
 #[cfg(feature = "sentry")]
 #[macro_use]
-extern crate sentry as sentry_client;
+pub extern crate sentry as sentry_client;
 extern crate serde;
 #[macro_use]
 extern crate serde_derive;
