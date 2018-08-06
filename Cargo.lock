@@ -41,7 +41,7 @@ dependencies = [
  "r2d2 0.8.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "r2d2_redis 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "redis 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "rumqtt 0.10.1 (git+https://github.com/AtherEnergy/rumqtt)",
+ "rumqtt 0.10.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "sentry 0.6.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde 1.0.70 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde_derive 1.0.70 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1203,7 +1203,7 @@ dependencies = [
 [[package]]
 name = "rumqtt"
 version = "0.10.1"
-source = "git+https://github.com/AtherEnergy/rumqtt#e2f9730384ecd9be11bc383cff3316a98366c5e5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "log 0.3.9 (registry+https://github.com/rust-lang/crates.io-index)",
  "mqtt-protocol 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -2157,7 +2157,7 @@ dependencies = [
 "checksum remove_dir_all 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)" = "3488ba1b9a2084d38645c4c08276a1752dcbf2c7130d74f1569681ad5d2799c5"
 "checksum reqwest 0.8.6 (registry+https://github.com/rust-lang/crates.io-index)" = "2abe46f8e00792693a2488e296c593d1f4ea39bb1178cfce081d6793657575e4"
 "checksum resolv-conf 0.6.1 (registry+https://github.com/rust-lang/crates.io-index)" = "c62bd95a41841efdf7fca2ae9951e64a8d8eae7e5da196d8ce489a2241491a92"
-"checksum rumqtt 0.10.1 (git+https://github.com/AtherEnergy/rumqtt)" = "<none>"
+"checksum rumqtt 0.10.1 (registry+https://github.com/rust-lang/crates.io-index)" = "12348e8812da78a953b4ba92c1d3e6ccf1b1b0af1325c7025a3c11a847b62f56"
 "checksum rustc-demangle 0.1.8 (registry+https://github.com/rust-lang/crates.io-index)" = "76d7ba1feafada44f2d38eed812bd2489a03c0f5abb975799251518b68848649"
 "checksum rustc_version 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "a54aa04a10c68c1c4eacb4337fd883b435997ede17a9385784b990777686b09a"
 "checksum safemem 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "e27a8b19b835f7aea908818e871f5cc3a5a186550c30773be987e155e8163d8f"
