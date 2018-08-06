@@ -1,3 +1,4 @@
+use chrono::Utc;
 use env_logger;
 use env_logger::Formatter;
 use log::Record;
@@ -14,6 +15,7 @@ pub fn formatter(buffer: &mut Formatter, record: &Record) -> Result<(), Error> {
     let data = json!({
         "level": record.level().to_string(),
         "message": record.args(),
+        "timestamp": Utc::now(),
     });
     let payload = serde_json::to_string(&data)?;
     writeln!(buffer, "{}", payload)

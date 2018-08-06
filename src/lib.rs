@@ -1,5 +1,7 @@
 #[cfg(feature = "actix")]
 extern crate actix;
+#[cfg(feature = "chrono")]
+extern crate chrono;
 #[cfg(feature = "config")]
 extern crate config;
 #[cfg(feature = "diesel")]
