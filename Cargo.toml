@@ -2,6 +2,8 @@
 name = "actix-tools"
 version = "0.1.0"
 authors = ["Loggi Tecnologia LTDA <dev@loggi.com>", "Gabriela Surita <gabsurita@gmail.com>"]
+description = "Provide Plug&Play components for Actix and Actix-web to build modular, 12-factor compliant apps."
+license = "MIT"
 
 [dependencies]
 actix = { version = "0.7", optional = true }
