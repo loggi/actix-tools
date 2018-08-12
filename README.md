@@ -1,6 +1,9 @@
 Actix Tools
 ===========
 
+[![crates.io](https://img.shields.io/crates/v/actix-tools.svg)](https://crates.io/crates/actix-tools)
+[![dependency status](https://deps.rs/repo/github/loggi/actix-tools/status.svg)](https://deps.rs/repo/github/loggi/actix-tools)
+
 This repository aggregates several tools used to include batteries to actix and actix-web applications.
 
 Features
