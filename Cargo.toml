@@ -18,7 +18,7 @@ rumqtt = { version = "0.30.1", optional = true }
 redis = { version = "0.8", optional = true }
 r2d2 = { version = "0.8", optional = true }
 r2d2_redis = { version = "0.7", optional = true }
-sentry = { version = "0.21.0", optional = true }
+sentry = { version = "0.18.0", optional = true }
 serde = "1.0"
 serde_derive = "1.0"
 serde_json = "1.0"
