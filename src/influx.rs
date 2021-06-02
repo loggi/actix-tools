@@ -55,6 +55,6 @@ impl Handler<Metric> for InfluxEmitter {
     type Result = ();
 
     fn handle(&mut self, msg: Metric, _ctx: &mut Self::Context) {
-        self.client.write_point(msg.0, None, None).unwrap();
+        let f = self.client.write_point(msg.0, None, None).unwrap();
     }
 }
