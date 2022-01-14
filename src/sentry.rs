@@ -5,14 +5,13 @@ pub struct SentrySettings {
     pub dsn: String,
 }
 
-pub fn init_sentry(settings: SentrySettings) {
+pub fn init_sentry(settings: SentrySettings) -> sentry_client::ClientInitGuard {
+    info!("Starting Sentry integration");
     sentry_client::init((
         settings.dsn,
         sentry_client::ClientOptions {
-            release: sentry_crate_release!(),
+            release: sentry_client::release_name!(),
             ..Default::default()
-        },
-    ));
-    sentry_client::integrations::panic::register_panic_handler();
-    info!("Starting Sentry integration")
+        })
+    )
 }
